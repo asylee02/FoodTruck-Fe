@@ -3,7 +3,6 @@ import CategoryButton from '../../components/CategoryButton';
 import Alert from '../../components/Alert';
 
 export default function MenuPlus({num}) {
-    const [category,setCategory]=useState();
     const [description, setDescription] = useState();
     const [menuName, setMenuName]= useState();
     const [price, setPrice]=useState();
@@ -11,7 +10,7 @@ export default function MenuPlus({num}) {
     const [isOpen, setIsOpen]= useState(true);
 
     const handleRegister=()=>{
-        if(category && menuName && price){
+        if( menuName && price){
             setIsOpen(false);
             const prev =JSON.parse(localStorage.getItem('menu'))
             console.log(prev)

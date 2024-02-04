@@ -6,7 +6,6 @@ module.exports = {
       height:{
         xxl: '92%',
         xxs: '8%',
-        head: '12%'
       },
       colors:{
         info: '#EAD196',
@@ -17,7 +16,7 @@ module.exports = {
       },
       borderWidth:{
         1: '1px'
-      }
+      },
     },
   },
   plugins: [],

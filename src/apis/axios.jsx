@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 
 const api = axios.create({
-  baseURL:'http://localhost:5000'
+  baseURL:' http://www.yummytruck.store'
 })
 
 export function main(lat,lng,level){
@@ -10,9 +10,14 @@ export function main(lat,lng,level){
   return api.get(`/calculate?latitude=${lat}&longitude=${lng}&distance=${level}`)
 }
 
-export function register(data){
+export function infoRegister(data){
   return api.post('/storeRegister',{
-    register: data
+    data: data
+  })
+}
+export function menuRegister(data){
+  return api.post('/itemRegister',{
+    data: data
   })
 }
 
