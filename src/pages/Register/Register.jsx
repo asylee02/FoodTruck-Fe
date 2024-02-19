@@ -15,6 +15,7 @@ export default function Register() {
   const handleLocation = () =>{
     const location = localStorage.getItem('location')
     if(location){
+      localStorage.setItem('location', JSON.stringify(currentLocation))
       console.log(location)
       navigate("./info")
     }
@@ -24,6 +25,9 @@ export default function Register() {
     }
   }
 
+  useEffect(()=>{
+    console.log(currentLocation)
+  },[currentLocation])
 
   useEffect(()=>{
     console.log(registerInfo)

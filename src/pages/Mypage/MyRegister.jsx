@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { myPage } from '../../apis/fake'
 import SimpleUI from '../../features/Mypage/Register'
 import Header from '../../layouts/header'
+import { myPageRegister } from '../../apis/axios';
 
 export default function MyRegister() {
   const [data,setData] = useState();
 
 
   useEffect(()=>{
-    myPage('12345678','register')
+    myPageRegister('12345678')
       .then((res)=>{
-        setData(res.data.register)
+        setData(res.data.store)
       })
   },[])
 

@@ -19,6 +19,8 @@ import MarkRegister from './pages/Register/MarkRegister';
 import MyLocation from './pages/Mypage/MyLocation';
 import MyPageLayout from './layouts/mypage-layout';
 import ReigsterLocation from './pages/Register/RegisterLocation';
+import LoginHandle from './pages/LoginHandle';
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -29,9 +31,11 @@ const router = createBrowserRouter([
       { path: '/', element: <Main /> },
       { path: '/search/:location', element: <Search /> },
 
-      { path: 'foodTruck/:truckId', element: <TruckInfo /> },
+      { path: 'foodTruck/:storeno', element: <TruckInfo /> },
 
       { path: 'accountBook', element: <AccountBook /> },
+      { path: '/auth/kakao/callback', element: <LoginHandle /> },
+      { path: '/login', element: <Login /> },
     ],
   },
   {
@@ -61,7 +65,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  // </React.StrictMode>
 );

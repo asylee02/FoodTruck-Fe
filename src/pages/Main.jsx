@@ -1,7 +1,5 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-import Footer from "../layouts/Footer";
 import { useEffect, useRef, useState } from "react";
-import SimpleInfo from '../features/Main/SimpleInfo';
 import truckMarker from '../assets/marker_truck.png';
 import currMarker from '../assets/marker_blue.png';
 
@@ -10,8 +8,8 @@ import Serach from "../features/Main/Serach";
 // import { main } from "../apis/axios";
 import { main } from "../apis/axios";
 import Markerdesc from "../features/Main/Markerdesc";
-import { Link, useNavigate } from "react-router-dom";
 import { geocoder } from "../utils/geocoder";
+import LoginAlert from "../components/LoginAlert";
 // import useKakaoLoader from "./useKakaoLoader"
 
 export default function Main() {
@@ -22,10 +20,18 @@ export default function Main() {
     lat:37.56383445090615,
     lng:126.99059423964209
   });
+  
+const user = JSON.parse(localStorage.getItem('userId'));
+const userId = user?.id
   const [currentAdress, setCurrentAdress]=useState();
   const [currentLevel, setCurrentLevel]= useState(4);
   const [myLocation, setMyLocation]= useState();
   const [forcusingTruck, setForcusingTruck]=useState();
+
+  useEffect(()=>{
+    console.log('hello')
+    console.log(user)
+  },[])
 
 
   useEffect(()=>{
@@ -59,7 +65,7 @@ export default function Main() {
 
 
   return (
-    <div className="h-xxl relative">
+    <div className="h-xxl relative overflow-hidden">
 
       {/* 지도 호출 */}
       <div className="h-full w-scree z-0 relative">
@@ -85,7 +91,9 @@ export default function Main() {
         />}
 
         {/* // 가게들 마커 */}
+
         {storeData && console.log(storeData)}
+
         {storeData && storeData.map((marker, index) => (
         <MapMarker
           onClick={()=>{slideRef.current.slickGoTo(index)}}
@@ -105,7 +113,6 @@ export default function Main() {
         </Map>
         </div>
 
-
       {/* 헤더 부분 */}
       <Serach mapRef={mapRef} setCurrentAdress={setCurrentAdress} setCurrentLocation={setCurrentLocation} setMyLocation={setMyLocation} />
 
@@ -116,11 +123,11 @@ export default function Main() {
         <div className="w-4/5 h-12 border-2 border-black absolute top-0 rounded-full bg-white left-1/2 -translate-x-1/2 mt-12 flex items-center justify-center font-bold" onClick={()=>{handleReset()}}> 
         {currentAdress}
         </div>
+      </>
+      }
         <div className="absolute bottom-28 z-10 w-screen flex h-1/5 justify-center">
           <Carousel data={storeData} setCurrentLocation={setCurrentLocation} setForcusingTruck={setForcusingTruck} slideRef={slideRef}/>
         </div>
-      </>
-      }
     </div>
   )
 }

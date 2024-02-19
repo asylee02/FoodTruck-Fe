@@ -4,7 +4,7 @@ import Footer from './layouts/Footer';
 
 function App() {
   return (
-    <div className='h-screen'>
+    <div className='h-dvh'>
         <Outlet/>
         <Footer/>
     </div>

@@ -3,11 +3,12 @@ import { Outlet } from 'react-router-dom';
 import Header from './header';
 import { TruckContextProvider } from '../context/TruckContext';
 import Footer from './Footer';
+import withAuth from '../hocs/WithAuth';
 
-export default function MyPageLayout() {
+function MyPageLayout() {
     return (
         <TruckContextProvider>
-        <div className='h-screen'>
+        <div className='h-dvh'>
             <div className='h-xxl'>
             <Outlet/>
             </div>
@@ -17,3 +18,5 @@ export default function MyPageLayout() {
     );
 }
 
+
+export default withAuth(MyPageLayout)

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Review from '../../features/Mypage/Review'
 import Header from '../../layouts/header'
-import { myPage } from '../../apis/fake'
+import { myPageReview } from '../../apis/axios';
 
 export default function MyReview() {
   const [data,setData] =useState();
 
   useEffect(()=>{
-    myPage('123456789','review')
+    myPageReview('123456789','review')
     .then((res)=>{
       console.log(res.data.review)
       setData(res.data.review)

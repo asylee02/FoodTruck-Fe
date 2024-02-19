@@ -21,9 +21,8 @@ export function CategoryImg(category){
         case '디저트':
             return <img src={`${url}/assets/dessert.png`} alt="디저트" />
         case '기타':
-            return <img src={`${url}/assets/fishBread.png`} alt="기타" />
-            default:
-            return <img src={`${url}/assets/fishBread.png`} alt="기타" />
-
+            return <img src={`${url}/assets/streetfood.png`} alt="기타" />
+        default:
+            return <img src={`${url}/assets/streetfood.png`} alt="기타" />
     }
 }

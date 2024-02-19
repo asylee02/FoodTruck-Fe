@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import StarList from './StarList';
 
 export default function Serach({mapRef, setCurrentAdress, setCurrentLocation,setMyLocation}) {
     const [searchData, setSearchData] = useState();
     const [dataList, setDataList]= useState();
     const {kakao} =window;
+    const navigate = useNavigate();
+    const userId = JSON.parse(localStorage.getItem('userId'));
+    const URL = process.env.REACT_APP_KAKAO_URL
+
+    function handleLogout(){
+      localStorage.removeItem('userId')
+      navigate('/')
+    }
+
+
     useEffect(()=>{
         const ps = new kakao.maps.services.Places();
     
@@ -19,6 +32,7 @@ export default function Serach({mapRef, setCurrentAdress, setCurrentLocation,set
         })
       },[searchData])
 
+
       function handleSearch(item){
         const map = mapRef.current
         const lat = Number(item.location.y)
@@ -31,12 +45,20 @@ export default function Serach({mapRef, setCurrentAdress, setCurrentLocation,set
       }
 
     return (
-        <header id='searchBox' className='absolute top-0 z-10 h-full'>
-        <div className="w-screen h-xxs bg-background flex items-center">
-            <p className='text-3xl font-bold text-white ml-3'>FoodTruck</p>
-        </div>
 
-            <div className='w-screen flex justify-center mt-10'>
+        <header id='searchBox' className='absolute top-0 z-10 h-xxs'>
+        <div className="w-screen h-full bg-background flex items-center justify-between">
+            <p className='text-3xl font-bold text-white ml-3'>FoodTruck</p>
+            <div className='flex mr-5'>
+            <Link to={userId ? '/mypage' : URL} className='w-auto px-5 bg-white font-bold text-background rounded-2xl border-1 flex justify-center mr-5 mt-2' >{userId ? userId.nickname : '로그인'}</Link>
+            <div onClick={handleLogout} className={`${userId ? 'block' : 'hidden'}  w-auto text-sm px-5 bg-white font-bold text-background rounded-2xl border-1 flex justify-center mt-2`} >로그아웃</div>
+            </div>
+        </div>
+          {userId &&
+          <StarList setCurrentLocation={setCurrentLocation} setCurrentAdress={setCurrentAdress} setMyLocation={setMyLocation} map={mapRef.current}/>
+          }
+            <div className='w-screen flex justify-center mt-5'>
+
               <input 
               className="z-3 border-2 border-black w-4/5 h-12 rounded-full pl-5" 
               type="text"

@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import { useTruckContext } from '../../context/TruckContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../layouts/header';
-import { myPageLocationPost } from '../../apis/axios';
+import { myPageUpdate } from '../../apis/axios';
 
 export default function ReigsterLocation() {
   const navigate = useNavigate();
@@ -17,9 +17,11 @@ export default function ReigsterLocation() {
   const handleLocation = () =>{
     const lat = currentLocation.lat;
     const lng = currentLocation.lng;
-/*     myPageLocationPost('id', lat, lng, type)
+    console.log(lat, lng, type)
+    myPageUpdate('id', lat, lng, type)
     .then((res)=>{
-    }) */
+      console.log(res)
+    }) 
     navigate(-1)
 }
 
