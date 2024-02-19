@@ -67,3 +67,7 @@
 - aws를 통해 배포를 하면서, 더 많은 지식이 있어야한다고 생각했다.
     
     ⇒ docker를 통한 서버 배포와 EC2 뿐만아니라 S3 + CloudFront  배포 또한 시도해 볼 예정이다.
+
+## 데모 영상
+https://github.com/asylee02/FoodTruck-Fe/assets/87488288/05b36dfd-fa9a-4d1b-9ab8-f28d1b405552
+
