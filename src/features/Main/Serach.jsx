@@ -45,6 +45,7 @@ export default function Serach({mapRef, setCurrentAdress, setCurrentLocation,set
       }
 
     return (
+
         <header id='searchBox' className='absolute top-0 z-10 h-xxs'>
         <div className="w-screen h-full bg-background flex items-center justify-between">
             <p className='text-3xl font-bold text-white ml-3'>FoodTruck</p>
@@ -57,6 +58,7 @@ export default function Serach({mapRef, setCurrentAdress, setCurrentLocation,set
           <StarList setCurrentLocation={setCurrentLocation} setCurrentAdress={setCurrentAdress} setMyLocation={setMyLocation} map={mapRef.current}/>
           }
             <div className='w-screen flex justify-center mt-5'>
+
               <input 
               className="z-3 border-2 border-black w-4/5 h-12 rounded-full pl-5" 
               type="text"

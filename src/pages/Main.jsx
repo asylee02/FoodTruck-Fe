@@ -91,7 +91,9 @@ const userId = user?.id
         />}
 
         {/* // 가게들 마커 */}
-        {/* {storeData && console.log(storeData)} */}
+
+        {storeData && console.log(storeData)}
+
         {storeData && storeData.map((marker, index) => (
         <MapMarker
           onClick={()=>{slideRef.current.slickGoTo(index)}}

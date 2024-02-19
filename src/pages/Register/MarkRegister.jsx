@@ -17,7 +17,9 @@ export default function MarkRegister() {
     const location = JSON.parse(localStorage.getItem('location'))
     const menu =  JSON.parse(localStorage.getItem('menu'))
     const info =  JSON.parse(localStorage.getItem('infoRegister'))
+
     const user = JSON.parse(localStorage.getItem('userId'))
+
 
 
     const handleChange=(e)=>{
@@ -50,6 +52,7 @@ export default function MarkRegister() {
     }
     const handleSubmit=()=>{
       const infoData = {}
+
       const days = info.dayOfWeek;
       const storeWeek = days.join('');
       let payment =''
@@ -63,27 +66,35 @@ export default function MarkRegister() {
       console.log(payment)
       infoData['storename'] = info.storeName
       infoData['storetime'] = `${info.startTime}-${info.endTime}`
+
       infoData['category'] = info.category
       infoData['storeweek'] = storeWeek
       infoData['contact'] = info.phoneNumber
       infoData['account'] = info.account
-      infoData['payment'] = payment
+
+      infoData['payment'] = info.payMent
+
       infoData['latitude'] = location.lat
       infoData['longitude'] = location.lng
       infoData['location'] = info.storeAddress
       infoData['confirmed'] = confirm
       infoData['reportcount'] = 0
-      infoData['id']=user.id
-      infoData['categoryid']=1   //카테고리 아이디 이야기 해봐야함
 
-      console.log(infoData)
+
 
       infoRegister(infoData)
       .then((res)=>{
-        const store_id = res.data.storeNo
+        const store_id = res.data.storeid
         createMenuData(store_id)
       })
 
+      // register(ans)
+      // .then((res)=>{console.log(res)})
+
+      localStorage.removeItem('menu')
+      localStorage.removeItem('location')
+      localStorage.removeItem('infoRegister')
+      navigate('/')
 
     }
     useEffect(()=>{
@@ -94,22 +105,17 @@ export default function MarkRegister() {
     },[])
 
     const createMenuData = (store_id) =>{
-      const menuDatas =[]
+
+      const menuData = {}
       menu.forEach((item)=>{
-        const menuData = {}
         menuData['itemname']=item.menuName
-        menuData['iteminformation']=item.description
-        menuData['itemprice']=item.price
-        menuData['storeno']=store_id
-        menuRegister(menuData)
+        menuData['iteminformation']=it
+        menuData['itemname']=item.menuName
+        menuData['itemname']=item.menuName
+        menuData['storeid']=store_id
       })
-     
-        localStorage.removeItem('menu')
-        localStorage.removeItem('location')
-        localStorage.removeItem('infoRegister')
-        navigate('/')
-      
-      
+      menuRegister(menuData)
+
     }
 
 

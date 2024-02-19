@@ -19,12 +19,14 @@ export default function InfoRegister() {
     const [dowData, setDoWData] =useState();
     const [startTime, setStartTime]=useState('시작 시간');
     const [endTime, setEndTime]=useState('마감 시간');
+
     const [phoneNumber, setPhoneNumber] = useState('');
     const [account, setAccount] = useState('');
     const [name, setName] = useState('');
     const [alert,setAlert] = useState(false)
     const [payMent,setPayMent]=useState('');
     const [category, setCategory]=useState('')
+
     const info = localStorage.getItem('infoRegister')
     
     useEffect(() => {

@@ -5,8 +5,7 @@ const user = JSON.parse(localStorage.getItem('userId'));
 const userId = user?.id
 
 const api = axios.create({
-baseURL:'https://www.yummytruck.store'
-//  baseURL: 'http://localhost:5000'
+  baseURL:' http://www.yummytruck.store'
 })
 
 export function main(lat,lng,level){
@@ -19,7 +18,6 @@ export function infoRegister(data){
     data: data
   })
 }
-
 export function menuRegister(data){
   return api.post('/itemRegister',{
     data: data
