@@ -50,24 +50,6 @@
   <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">  
 </div>
 
-## 배운점 & 부족한 점
-
----
-
-- 파일구조부터 시작해서 초기 세팅을 탄탄하게 잡고 갈 수 있어서 편했다.
-- 초기 기획 및 기능명세서, api 명세서 등등 기획에 시간을 두고 만들어서 프로젝트가 편했다.
-- JS 뿐만 아니라, TS와 Next를 사용해서 만들어서 SEO나 최적화를 하면 좋겠다는 생각을 했다.
-    
-    ⇒ 다음 프로젝트부터는 Ts와 Next 사용 예정
-    
-- api 명세서를 노션으로 만들고, 중간중간 수정이 되다보니 소통의 오류가 있었다.
-    
-    ⇒ Swagger 같은 프레임워크들을 쓰면 어떨까 생각했다.
-    
-- aws를 통해 배포를 하면서, 더 많은 지식이 있어야한다고 생각했다.
-    
-    ⇒ docker를 통한 서버 배포와 EC2 뿐만아니라 S3 + CloudFront  배포 또한 시도해 볼 예정이다.
-
 ## 데모 영상
 https://github.com/asylee02/FoodTruck-Fe/assets/87488288/05b36dfd-fa9a-4d1b-9ab8-f28d1b405552
 
